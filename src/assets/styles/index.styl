@@ -1,0 +1,55 @@
+@import './reset.styl'
+@import './font.styl'
+@import './const.styl'
+@import './markdown.styl'
+
+
+    
+html,body
+    height 100%
+    width 100%
+    background-color #eff0f6
+    font-family 'Quicksand', sans-serif;
+
+
+input,button,select,textarea
+    outline none
+    resize none
+    padding 0px
+    margin 0px
+    font-family 'Quicksand', sans-serif;
+
+
+// 滚动条样式
+
+*::-webkit-scrollbar
+    width 3px; 
+    height 5px 
+    background-color transparent
+
+*::-webkit-scrollbar-track
+    background-color #f0f6ff
+
+*::-webkit-scrollbar-thumb 
+    background-color #C1C1C1
+    border-radius 2px
+
+
+a
+    text-decoration none
+    color #333
+.f-fl
+    float left
+.f-fr
+    float right
+.f-cf::after 
+    content ''
+    display block
+    height 0
+    visibility hidden
+    clear both
+
+
+
+
+  
