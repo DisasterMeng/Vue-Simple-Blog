@@ -4,7 +4,7 @@
 
 
 module.exports = {
-    baseUrl:process.env.NODE_ENV === 'production'? 'http://img.cdn.yandingblog.cn/blog/': '/',
+    baseUrl:process.env.NODE_ENV === 'production'? 'http://img.cdn.white-letter.xyz/blog/': '/',
     lintOnSave:false,
     productionSourceMap:false,
     // configureWebpack:config =>{
