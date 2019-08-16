@@ -1,29 +1,28 @@
 <template>
-    <div class="about">
-            <article  class="article"  v-html="about.content">
-    </article>
-    </div>
+	<div class="about">
+		<article class="article" v-html="about.content">
+		</article>
+	</div>
 </template>
 
 
-<script>
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+import { fetchAboutApi } from '../api'
 
-import {fetchAboutApi} from '../api/api'
-export default {
-    name:'about',
-    data:()=>({
-        about:{}
-    }),
-    methods:{
-        fetchAbout(){
-            fetchAboutApi().then(res=>{
-                this.about = res.data
-            })
-        }
-    },
-    created(){
-        this.fetchAbout()
-    }
+@Component
+export default class About extends Vue {
+	about: object = {}
+
+	fetchAbout() {
+		fetchAboutApi().then(res => {
+			this.about = res.data
+		})
+	}
+
+	created() {
+		this.fetchAbout()
+	}
 }
 </script>
 
@@ -31,18 +30,17 @@ export default {
 
 <style lang="stylus" scoped>
 .about
-    margin 64px 0 80px
-    padding 80px 100px 80px 
-    background-color white
-    color #333
-    font-size 16px
-    line-height 30px
-
+	margin 64px 0 80px
+	padding 80px 100px 80px
+	background-color white
+	color #333
+	font-size 16px
+	line-height 30px
 
 @media screen and (max-width: 600px)
-  .about
-    padding 20px 20px 20px
-    margin 20px 0
+	.about
+		padding 20px 20px 20px
+		margin 20px 0
 </style>
 
 

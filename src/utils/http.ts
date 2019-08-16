@@ -1,11 +1,8 @@
 import axios from "axios"
 
 
-import * as constant from '../constant'
-
-
 let instance = axios.create({
-    baseURL: constant.ApiUrl.BaseUrl,
+    baseURL: process.env.VUE_APP_BASE_API,
     responseType: 'json',
     transformRequest: [function (data) {
 

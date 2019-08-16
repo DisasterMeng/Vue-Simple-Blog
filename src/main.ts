@@ -4,24 +4,21 @@ import Router from 'vue-router'
 
 
 import routers from './router'
-import base from './base'
-
-
-
-import './assets/styles/index.styl'
+import common from './common'
+import './assets/styles/index'
 
 Vue.config.productionTip = false
 
 
 Vue.use(Router)
-Vue.use(base)
-
+Vue.use(common)
 
 
 const router = new Router({
   mode: 'history',
   base: '/',
-  routes: routers})
+  routes: routers
+})
 
 
 new Vue({

@@ -5,10 +5,17 @@
         <el-button type='text' @click="$router.push({path:'/'})">回到主页</el-button>
     </div>
        
-
-   
 </template>
 
+
+<script lang="ts">
+import {Vue,Component} from 'vue-property-decorator'
+
+@Component
+export default class NoFound extends Vue{
+
+}
+</script>
 
 <style lang="stylus" scoped>
 

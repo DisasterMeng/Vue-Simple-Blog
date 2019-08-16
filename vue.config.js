@@ -1,21 +1,5 @@
-
-
-// const CompressionPlugin = require('compression-webpack-plugin')
-
-
 module.exports = {
-    baseUrl:process.env.NODE_ENV === 'production'? 'http://img.cdn.white-letter.xyz/blog/': '/',
+    baseUrl:process.env.VUE_APP_CND_LINK,
     lintOnSave:false,
-    productionSourceMap:false,
-    // configureWebpack:config =>{
-    //     if(process.env.NODE_ENV === 'production'){
-    //         return {
-    //             plugins:[new CompressionPlugin({
-    //                 test:/\.js$|\.html$|\.css/,
-    //                 threshold:10240,
-    //                 deleteOriginalAssets:true
-    //             })]
-    //         }
-    //     }
-    // }
+    productionSourceMap:false
   }

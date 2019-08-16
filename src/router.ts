@@ -1,38 +1,33 @@
-
-import {PageName}  from './constant'
-
-
-
 export default [
     {
       path: '/',
-      name: PageName.Home,
-      component: () => import('./views/Home'),
+      name: 'home',
+      component: () => import('./views/Home.vue'),
       redirect:'/blogs/1',
       children:[
         {
           path: '/blogs/:page',
-          component: () => import('./views/Blogs'),
+          component: () => import('./views/Blogs.vue'),
         },
         {
           path:'/detail/:id',
-          component:()=> import('./views/BlogDetail')
+          component:()=> import('./views/BlogDetail.vue')
         },
         {
           path:'/category',
-          component:()=> import('./views/Category')
+          component:()=> import('./views/Category.vue')
         },
         {
           path:'/friends',
-          component:()=> import('./views/Friend')
+          component:()=> import('./views/Friend.vue')
         },
         {
           path:'/pictures/:page',
-          component:()=> import('./views/Pictures')
+          component:()=> import('./views/Pictures.vue')
         },
         {
           path:'/about',
-          component:()=> import('./views/About')
+          component:()=> import('./views/About.vue')
         }
       ]
       
