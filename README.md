@@ -14,11 +14,12 @@
 ![fff](./screenshot/2.png)
 
 
-## ChangeLog
+## 更新
 
 ### 0.2.0
 - Typescript Pug支持
-- 更新依赖，解决安全提示 
+- 显示loading加载
+- 更新依赖，解决安全提示
 
 ## 预览
 ```
