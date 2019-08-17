@@ -17,7 +17,7 @@
 ## ChangeLog
 
 ### 0.2.0
-- Typescirpt Pug支持
+- Typescript Pug支持
 - 更新依赖，解决安全提示 
 
 ## 预览
