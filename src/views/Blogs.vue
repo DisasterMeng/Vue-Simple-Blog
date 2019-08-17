@@ -1,24 +1,19 @@
-<template>
+<template lang="pug">
+	div.blogs(v-loading='loading')
 
-	<div class="blogs">
-
-		<div class="blog-card" v-for="(item, index) in blogs.results" :key="index">
-			<div class="img-container">
-
-				<img :src="item.summary_img" alt="">
-			</div>
-			<div class="text-container">
-				<a :href="`/detail/${item.id}`">{{item.title}}</a>
-				<section>{{item.desc}}
-				</section>
-				<p class="sub-text">{{item.created}} · {{item.category}} · {{item.page_view}}</p>
-			</div>
-		</div>
-		<footer class="blog-list f-cf">
-			<a v-if="blogs.previous" class="f-fl" :href="`/blogs/${params.page-1}`">⟵上一页</a>
-			<a v-if="blogs.next" class="f-fr" :href="`/blogs/${params.page+1}`">下一页⟶</a>
-		</footer>
-	</div>
+		div.blog-card(v-for="(item, index) in blogs.results", :key="index")
+			div.img-container
+				img(:src="item.summary_img" alt="")
+			
+			div.text-container
+				a(:href="`/detail/${item.id}`") {{item.title}}
+				section {{item.desc}}
+				p.sub-text {{item.created}} · {{item.category}} · {{item.page_view}}
+			
+		
+		footer.blog-list.f-cf
+			a.f-fl(v-if="blogs.previous", :href="`/blogs/${params.page-1}`") ⟵上一页
+			a.f-fr(v-if="blogs.next", :href="`/blogs/${params.page+1}`") 下一页⟶
 </template>
 
 
@@ -30,6 +25,7 @@ import { fetchBlogsApi } from '../api'
 @Component
 export default class Blog extends Vue {
 	blogs: Object[] = []
+	loading: boolean = false
 
 	get params() {
 		return {
@@ -37,8 +33,10 @@ export default class Blog extends Vue {
 		}
 	}
 	fetchBlogs() {
+		this.loading =true
 		fetchBlogsApi(this.params).then(res => {
 			this.blogs = res.data
+			this.loading =false
 		})
 	}
 	created() {
@@ -50,6 +48,7 @@ export default class Blog extends Vue {
 
 <style lang="stylus" scoped>
 .blogs
+	min-height 400px
 	.blog-card
 		display flex
 		justify-content space-between

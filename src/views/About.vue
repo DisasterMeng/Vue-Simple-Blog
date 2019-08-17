@@ -1,8 +1,6 @@
-<template>
-	<div class="about">
-		<article class="article" v-html="about.content">
-		</article>
-	</div>
+<template lang="pug">
+	div.about(v-loading='loading')
+		article.article(v-html="about.content")
 </template>
 
 
@@ -13,10 +11,13 @@ import { fetchAboutApi } from '../api'
 @Component
 export default class About extends Vue {
 	about: object = {}
+	loading:boolean = false
 
 	fetchAbout() {
+		this.loading = true
 		fetchAboutApi().then(res => {
 			this.about = res.data
+			this.loading = false
 		})
 	}
 

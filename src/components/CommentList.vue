@@ -1,47 +1,39 @@
-<template>
-	<div class="comment-list">
-		<p class="comment-count">{{comment.data.count}}条评论</p>
-		<div class="comment-item" v-for="(item,index) in comment.data.results" :key="item.id">
-			<!-- 评论的一些信息     -->
-			<div class="item-header">
-				<img :src="item.user.icon" alt="">
-				<div class="item-text">
-					<p class="item-title">{{item.user.username}}</p>
-					<p class="item-sub">{{item.descendants_count+1}}楼 · {{item.submit_date}}</p>
-				</div>
-			</div>
+<template lang="pug">
+	div.comment-list
+		p.comment-count {{comment.data.count}}条评论
+		div.comment-item(v-for="(item,index) in comment.data.results", :key="item.id")
+			<!-- 评论的一些信息 -->
+			div.item-header
+				img(:src="item.user.icon" alt="")
+				div.item-text
+					p.item-title {{item.user.username}}
+					p.item-sub {{item.descendants_count+1}}楼 · {{item.submit_date}}
 			<!-- 评论内容     -->
-			<div class="item-content">
-				<p>{{item.comment}}</p>
-				<span class="reply" @click="showReply(index)">回复</span>
-			</div>
+			div.item-content
+				p {{item.comment}}
+				span.reply(@click="showReply(index)") 回复
+			
 			<!-- 二级内容     -->
-			<div class="sub-comment">
+			div.sub-comment
 				<!-- 二级内容列表     -->
-				<div class="sub-comment-content" v-for="su in item.descendants" :key="su.id">
-					<div class="sub-text">
-						<span>{{su.user.username}}</span>:&nbsp;<span>@{{su.parent_user.username}}</span> &nbsp;&nbsp; <span>{{su.comment}}</span>
-					</div>
-					<div class="sub-time">
-						<span>{{su.submit_date}}</span>
-					</div>
-				</div>
+				div.sub-comment-content( v-for="su in item.descendants", :key="su.id")
+					div.sub-text
+						span {{su.user.username}}:&nbsp;
+						span @{{su.parent_user.username}} &nbsp;&nbsp; 
+						span {{su.comment}}
+					
+					div.sub-time
+						span {{su.submit_date}}
+					
 				<!-- 回复组件     -->
-				<div class="reply-container" v-if="item.is_add">
-					<p>添加新评论</p>
-					<div class="textarea">
-						<textarea rows="6" v-model="item.sub_content" />
-						</div>
-
-          <div class="comment-bottomtool-container">
-                <span class="markdown-hint">Support Markdown</span>
-                <span @click="sendComment(index,item.object_pk,item.id)">发表</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+				div.reply-container(v-if="item.is_add")
+					p 添加新评论
+					div.textarea
+						textarea(rows="6", v-model="item.sub_content")
+					div.comment-bottom-tool-container
+						span.markdown-hint Support Markdown
+						span(@click="sendComment(index,item.object_pk,item.id)") 发表
+          
 </template>
 
 
@@ -131,7 +123,7 @@ export default class CommentList extends Vue {
 
 	.item-content
 		margin-top 10px
-		font-size 19pxpx
+		font-size 19px
 
 		.reply
 			font-size 10px
@@ -163,7 +155,7 @@ export default class CommentList extends Vue {
 					width 100%
 					border none
 
-			.comment-bottomtool-container
+			.comment-bottom-tool-container
 				border-width 0px 1px 1px 1px
 				border-style solid
 				border-color rgb(169, 169, 169)

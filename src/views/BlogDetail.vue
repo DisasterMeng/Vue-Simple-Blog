@@ -1,35 +1,37 @@
-<template>
-	<div class="blog-detail-container">
+<template lang="pug">
+	div.blog-detail-container
+		h2.title {{blog.title}}
+		p.sub {{blog.created}} · {{blog.category}} · {{blog.page_view}}
+		article.article(v-html="blog.content")
 
-		<h2 class="title">{{blog.title}}</h2>
-		<p class="sub">{{blog.created}} · {{blog.category}} · {{blog.page_view}} </p>
-		<article class="article" v-html="blog.content">
 
-		</article>
+		div.blog-end
+			p --&nbsp;&nbsp;本文结束 &nbsp; 感谢阅读&nbsp;&nbsp;--
 
-		<div class="blog-end">
-			<p>--&nbsp;&nbsp;本文结束 &nbsp; 感谢阅读&nbsp;&nbsp;--</p>
-		</div>
+		div.license-container
+			p
+				strong 本文作者:&nbsp;
+				| 素笺
+			p
+				strong 本文链接:&nbsp;
+				| {{currentUrl}}
+			p
+				strong 版权声明:&nbsp;
+				| 自由转载-非商用-禁止演绎-保持署名 (CC BY-NC-ND 4.0)
+			p
+				strong 发表日期:&nbsp;
+				| {{time}}
+		
 
-		<div class="license-container">
-			<p><strong>本文作者:&nbsp;</strong>素笺</p>
-			<p><strong>本文链接:&nbsp;</strong>{{currentUrl}}</p>
-			<p><strong>版权声明:&nbsp;</strong>自由转载-非商用-禁止演绎-保持署名 (CC BY-NC-ND 4.0)</p>
-			<p><strong>发表日期:&nbsp;</strong>{{time}}</p>
-		</div>
+		footer.blog-footer.f-cf(v-if="blog.pre_blog||blog.next_blog")
+			a.f-fl(v-if="blog.pre_blog", :href="`/Detail/${blog.pre_blog.id}`") ⟵{{blog.pre_blog.title}}
+			a.f-fr(v-if="blog.next_blog", :href="`/Detail/${blog.next_blog.id}`") {{blog.next_blog.title}}⟶
+		
 
-		<footer v-if="blog.pre_blog||blog.next_blog" class="blog-footer f-cf">
-			<a v-if="blog.pre_blog" class="f-fl" :href="`/Detail/${blog.pre_blog.id}`">⟵{{blog.pre_blog.title}}</a>
-			<a v-if="blog.next_blog" class="f-fr" :href="`/Detail/${blog.next_blog.id}`">{{blog.next_blog.title}}⟶</a>
-		</footer>
-
-		<div class="comment-container">
-			<comment my-info="$attrs.myInfo" :blog-id="blog.id" />
-		</div>
-
-		<comment-list :comment="comment" />
-
-	</div>
+		div.comment-container
+			comment(my-info="$attrs.myInfo", :blog-id="blog.id")
+		
+		comment-list(:comment="comment")
 </template>
 
 

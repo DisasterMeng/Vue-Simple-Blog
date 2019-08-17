@@ -10,10 +10,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dayjs": "^1.8.15",
-    "moment": "^2.22.2",
     "query-string": "^6.8.2",
+    "spinkit": "^1.2.5",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
+    "vue-easy-loading": "^1.5.7",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1"
   },

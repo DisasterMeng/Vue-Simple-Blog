@@ -1,10 +1,8 @@
-<template>
-    <div class="container">
- <h1>迷路了</h1>
-        <p>你需要一个GPS</p>
-        <el-button type='text' @click="$router.push({path:'/'})">回到主页</el-button>
-    </div>
-       
+<template lang="pug">
+    div.container
+        h1 迷路了
+        p 你需要一个GPS
+        button(@click="$router.push({path:'/'})") 回到主页
 </template>
 
 

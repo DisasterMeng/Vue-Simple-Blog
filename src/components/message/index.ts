@@ -32,4 +32,11 @@ const Msg = {
 }
 
 
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $message: Function
+  }
+}
+
 export default Msg

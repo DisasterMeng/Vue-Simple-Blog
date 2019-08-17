@@ -4,15 +4,18 @@ import Router from 'vue-router'
 
 
 import routers from './router'
-import common from './common'
-import './assets/styles/index'
+import Common from './common'
+import Loading from './components/loading'
+import './assets/styles/index.styl'
+// import xx from 'vue-easy-loading'
+
 
 Vue.config.productionTip = false
 
 
 Vue.use(Router)
-Vue.use(common)
-
+Vue.use(Common)
+Vue.use(Loading)
 
 const router = new Router({
   mode: 'history',

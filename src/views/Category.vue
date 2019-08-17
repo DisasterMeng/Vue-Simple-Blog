@@ -1,16 +1,11 @@
-<template>
-	<div class="category">
-		<div class="category-item" v-for="(item, index) in categories" :key="index">
-			<p class="title">{{item.name}}</p>
-			<ul>
-				<li v-for="(blog, index) in item.blogs" :key="index"><a :href="`/detail/${blog.id}`">{{blog.title}}</a></li>
-			</ul>
-		</div>
-	</div>
+<template lang="pug">
+	div.category(v-loading='loading')
+		div.category-item(v-for="(item, index) in categories" :key="index")
+			p.title {{item.name}}
+			ul
+				li(v-for="(blog, index) in item.blogs", :key="index")
+					a(:href="`/detail/${blog.id}`") {{blog.title}}
 </template>
-
-
-
 
 
 <script lang="ts">
@@ -21,9 +16,13 @@ import { fetchCategoriesApi } from '../api'
 @Component
 export default class Category extends Vue {
 	categories: object[] = []
+	loading:boolean =false
+
 	fetchCategories() {
+		this.loading = true
 		fetchCategoriesApi().then(res => {
 			this.categories = res.data
+			this.loading = false
 		})
 	}
 

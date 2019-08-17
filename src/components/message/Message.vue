@@ -1,12 +1,10 @@
-<template>
-	<transition name="slide-fade">
-		<div class="message" :class="type" v-if="visible">
-			<i class="icon-type iconfont" :class="'icon-'+type"></i>
-			<div class="content">{{content}}
-				<i v-if="hasClose" class="btn-close iconfont icon-close" @click="visible=false"></i>
-			</div>
-		</div>
-	</transition>
+<template lang="pug">
+	transition(name='slide-fade')
+		div.message(:class='type', v-if='visible')
+			i.icon-type.iconfont(:class='"icon-"+type')
+			div.content 
+				| {{content}}
+				i.btn-close.iconfont.icon-close(v-if='hasClose', @click="visible=false")
 </template>
 
 

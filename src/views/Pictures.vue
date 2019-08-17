@@ -1,18 +1,14 @@
-<template>
-	<div class="picture">
-		<h1>My Picture</h1>
+<template lang="pug">
+	div.picture(v-loading='loading')
+		h1 My Picture
 
-		<div class="picture-container">
-			<img v-for="picture in pictures.results" :key="picture.id" :src="picture.image" alt="">
-		</div>
-		<footer class="blog-list f-cf">
-			<a v-if="pictures.previous" class="f-fl" :href="`/pictures/${params.page-1}`">⟵上一页</a>
-			<a v-if="pictures.next" class="f-fr" :href="`/pictures/${params.page+1}`">下一页⟶</a>
-		</footer>
-	</div>
+		div.picture-container
+			img(v-for="picture in pictures.results", :key="picture.id", :src="picture.image" alt="")
+	
+		footer.blog-list.f-cf
+			a.f-fl(v-if="pictures.previous", :href="`/pictures/${params.page-1}`") ⟵上一页
+			a.f-fr(v-if="pictures.next", :href="`/pictures/${params.page+1}`") 下一页⟶
 </template>
-
-
 
 
 <script lang="ts">
@@ -23,6 +19,7 @@ import { fetchPicturesApi } from '../api'
 @Component
 export default class Picture extends Vue {
 	pictures: object = {}
+	loading:boolean = false
 
 	get params() {
 		return {
@@ -31,8 +28,10 @@ export default class Picture extends Vue {
 	}
 
 	fetchPictures() {
+		this.loading = true
 		fetchPicturesApi(this.params).then(res => {
 			this.pictures = res.data
+			this.loading = false
 		})
 	}
 

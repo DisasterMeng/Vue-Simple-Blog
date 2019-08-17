@@ -1,18 +1,16 @@
-<template>
-	<div class="friend">
-		<h1>My Friends</h1>
-		<ul class="ul-friend">
-			<li v-for="(item, index) in friends" :key="index"><a :href="item.link" target="_blank">{{item.name}}</a></li>
-		</ul>
-		<p>以上排名不分先后，有需要交换友链的朋友，可以发送邮件到121116111@qq.com，需要以下信息：</p>
-		<ul class="ul-hint">
-			<li>名字（必须）</li>
-			<li>链接（必须）</li>
-			<li>描述（非必须）</li>
-			<li>图片（非必须）</li>
-		</ul>
-
-	</div>
+<template lang="pug">
+	div.friend(v-loading='loading')
+		h1 My Friends
+		ul.ul-friend
+			li(v-for="(item, index) in friends", :key="index")
+				a(:href="item.link", target="_blank") {{item.name}}
+		
+		p 以上排名不分先后，有需要交换友链的朋友，可以发送邮件到121116111@qq.com，需要以下信息：
+		ul.ul-hint
+			li 名字（必须）
+			li 链接（必须）
+			li 描述（非必须)
+			li 图片（非必须）
 </template>
 
 
@@ -24,10 +22,13 @@ import { fetchFriendsApi } from '../api'
 @Component
 export default class Friend extends Vue {
 	friends: object[] = []
+	loading:boolean = false
 
 	fetchFriends() {
+		this.loading = true
 		fetchFriendsApi().then(res => {
 			this.friends = res.data
+			this.loading = false
 		})
 	}
 

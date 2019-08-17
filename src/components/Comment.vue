@@ -1,30 +1,18 @@
-<template>
-	<div class="comment">
-		<div class="comment-toptool-container">
-			<div class="preview">
-				<span :class="check=='content'?'check':''" @click="tabClick('content')">内容</span>
-				<span :class="check=='preview'?'check':''" @click="tabClick('preview')">预览</span>
-			</div>
+<template lang="pug">
+	div.comment
+		div.comment-top-tool-container
+			div.preview
+				span(:class="check=='content'?'check':''" @click="tabClick('content')") 内容
+				span(:class="check=='preview'?'check':''" @click="tabClick('preview')") 预览
+			div.third
+				img(@click="githubLogin" src="../assets/imgs/ic_github.svg" alt="")
+		div.textarea
+			textarea(v-show="check=='content'" @input="change" rows="8" v-model="content" :readonly="option.readonly" :placeholder="option.placeholder")
+			article.article(v-show="check=='preview'" v-html="html")
+		div.comment-bottom-tool-container
+			span.markdown-hint Support Markdown       	
+			span(@click="sendComment") 发表
 
-			<div class="third">
-
-				<img @click="githubLogin" src="../assets/imgs/ic_github.svg" alt="">
-
-			</div>
-
-		</div>
-
-		<div class="textarea">
-			<textarea v-show="check=='content'" @input="change" rows="8" v-model="content" :readonly="option.readonly" :placeholder="option.placeholder" />
-			<article v-show="check=='preview'" class="article" v-html="html"/>
-    </div>
-
-    <div class="comment-bottomtool-container">
-         <span class="markdown-hint">Support Markdown</span>
-         <span @click="sendComment">发表</span>
-    </div>
-   
-  </div>
 </template>
 
 
@@ -100,7 +88,7 @@ export default class Comment extends Vue {
 
 <style lang="stylus" scoped>
 .comment
-	.comment-toptool-container
+	.comment-top-tool-container
 		border-width 1px 1px 0px 1px
 		border-style solid
 		border-color rgb(169, 169, 169)
@@ -144,7 +132,7 @@ export default class Comment extends Vue {
 		article
 			height 161px
 
-	.comment-bottomtool-container
+	.comment-bottom-tool-container
 		border-width 0px 1px 1px 1px
 		border-style solid
 		border-color rgb(169, 169, 169)

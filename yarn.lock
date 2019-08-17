@@ -5165,11 +5165,6 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
-moment@^2.22.2:
-  version "2.22.2"
-  resolved "http://registry.npm.taobao.org/moment/download/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
-  integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/move-concurrently/download/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -7149,6 +7144,11 @@ spdy@^3.4.1:
     select-hose "^2.0.0"
     spdy-transport "^2.0.18"
 
+spinkit@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.npm.taobao.org/spinkit/download/spinkit-1.2.5.tgz#90f9f466a20e8e39ef24da959c1e611c2a30dd54"
+  integrity sha1-kPn0ZqIOjjnvJNqVnB5hHCow3VQ=
+
 split-on-first@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/split-on-first/download/split-on-first-1.1.0.tgz#f610afeee3b12bce1d0c30425e76398b78249a5f"
@@ -7941,6 +7941,13 @@ vue-cli-plugin-typescript@^0.0.1:
     ts-loader "^5.3.3"
     tslint "^5.13.0"
     webpack ">=4 < 4.29"
+
+vue-easy-loading@^1.5.7:
+  version "1.5.7"
+  resolved "https://registry.npm.taobao.org/vue-easy-loading/download/vue-easy-loading-1.5.7.tgz#916dda900719209db5347d9c51b5a5b5f450154b"
+  integrity sha1-kW3akAcZIJ21NH2cUbWltfRQFUs=
+  dependencies:
+    spinkit "^1.2.5"
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"

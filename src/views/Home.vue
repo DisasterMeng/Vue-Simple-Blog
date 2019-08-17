@@ -1,47 +1,39 @@
-<template>
-	<div id="container">
+<template lang="pug">
+	div#container
+		nav#nav
+			header.header
+				a(href="/") sujian
+			
+			div.nav-container
+				div.links
+					a(href="https://github.com/sujianqingfeng", target="_black") 
+						img(src="../assets/imgs/ic_github.svg", alt="")
+					a(href="https://www.jianshu.com/u/debdd7d8eb03", target="_black") 
+						img(src="../assets/imgs/ic_jianshu.svg", alt="")
+					a(href="https://www.jianshu.com/u/debdd7d8eb03", target="_black")
+						img(src="../assets/imgs/ic_qq.svg", alt="")
+				
+				div.menu
+					ul
+						li 
+							a(href="/") Home
+						li
+							a(href="/category") Category
+						li
+							a(href="/friends") Friends
+						li
+							a(href="/pictures/1") Pictures
+						li
+							a(href="/about") About
 
-		<nav id="nav">
-			<header class="header">
-				<a href="/">sujian</a>
-			</header>
+		div.main
+			router-view(:myInfo='myInfo')
 
-			<div class="nav-container">
-				<div class="links">
-					<a href="https://github.com/sujianqingfeng" target="_black"> <img src="../assets/imgs/ic_github.svg" alt=""></a>
-					<a href="https://www.jianshu.com/u/debdd7d8eb03" target="_black"> <img src="../assets/imgs/ic_jianshu.svg" alt=""></a>
-					<a href="https://www.jianshu.com/u/debdd7d8eb03" target="_black"> <img src="../assets/imgs/ic_qq.svg" alt=""></a>
-				</div>
+		footer#footer
+			| 121116111@qq.com · 蜀ICP备19009034号
 
-				<div class="menu">
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/category">Category</a></li>
-						<li><a href="/friends">Friends</a></li>
-						<li><a href="/pictures/1">Pictures</a></li>
-						<li><a href="/about">About</a></li>
-
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<div id="main">
-			<router-view :myInfo='myInfo'></router-view>
-		</div>
-
-		<footer id="footer">
-
-			121116111@qq.com · 蜀ICP备19009034号
-
-			<span>All rights reserved @Su Jian </span>
-
-		</footer>
-
-	</div>
+			span All rights reserved @Su Jian 
 </template>
-
-
 
 
 <script lang="ts">
