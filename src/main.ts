@@ -7,7 +7,6 @@ import routers from './router'
 import Common from './common'
 import Loading from './components/loading'
 import './assets/styles/index.styl'
-// import xx from 'vue-easy-loading'
 
 
 Vue.config.productionTip = false

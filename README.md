@@ -14,6 +14,12 @@
 ![fff](./screenshot/2.png)
 
 
+## ChangeLog
+
+### 0.2.0
+- Typescirpt Pug支持
+- 更新依赖，解决安全提示 
+
 ## 预览
 ```
 git clone https://github.com/DisasterMeng/Vue-Simple-Blog.git
